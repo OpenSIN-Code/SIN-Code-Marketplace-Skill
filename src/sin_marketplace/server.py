@@ -191,3 +191,7 @@ async def marketplace_sync() -> str:
 def main() -> None:
     """Run the MCP server."""
     mcp.run()
+
+
+if __name__ == "__main__":
+    main()
