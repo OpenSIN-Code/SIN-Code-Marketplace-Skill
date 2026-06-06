@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sin-marketplace-skill"
-version = "0.1.0"
+version = "0.2.0"
 description = "SIN Marketplace Skill — MCP-based skill management for OpenSIN-Code"
 readme = "README.md"
 license = "MIT"
@@ -46,6 +46,17 @@ dev = [
 
 [project.scripts]
 sin-marketplace = "sin_marketplace.cli:main"
+# v0.2.0 — Standalone CLI shims for the 7 MCP tools. The original
+# tools are async; each shim wraps the call in asyncio.run. Lets
+# shell users and sub-agents manage skills without spinning up
+# the FastMCP server.
+marketplace-search = "sin_marketplace.cli_shims.marketplace_search:main"
+marketplace-install = "sin_marketplace.cli_shims.marketplace_install:main"
+marketplace-list = "sin_marketplace.cli_shims.marketplace_list:main"
+marketplace-remove = "sin_marketplace.cli_shims.marketplace_remove:main"
+marketplace-info = "sin_marketplace.cli_shims.marketplace_info:main"
+marketplace-update = "sin_marketplace.cli_shims.marketplace_update:main"
+marketplace-sync = "sin_marketplace.cli_shims.marketplace_sync:main"
 
 [tool.ruff]
 line-length = 100
